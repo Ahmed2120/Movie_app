@@ -1,5 +1,8 @@
 # movies
 
+<img src = "https://user-images.githubusercontent.com/67471054/147414488-1fc49e4e-fb1e-45d5-b2fe-6deba76eb2db.gif" width="200" />
+
+
 A new Flutter application.
 
 ## Getting Started
