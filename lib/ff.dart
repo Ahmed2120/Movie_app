@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'movie.dart';
 
-class MovieDetail extends StatelessWidget {
-  const MovieDetail(this.movie);
+class FF extends StatelessWidget {
+  const FF(this.movie);
 
   final Movie movie;
   final String imagePath = 'https://image.tmdb.org/t/p/w500/';

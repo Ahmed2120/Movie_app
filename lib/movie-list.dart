@@ -111,8 +111,11 @@ class _MovieListState extends State<MovieList> {
                       title: Text(movies[position].title),
                       subtitle: Text(
                           'Released: ${movies[position].releaseDate} -Vote: ${movies[position].voteAverage}'),
-                      leading: CircleAvatar(
-                        backgroundImage: image,
+                      leading: Hero(
+                        tag: movies[position].id,
+                        child: CircleAvatar(
+                          backgroundImage: image,
+                        ),
                       ),
                     ),
                   );
