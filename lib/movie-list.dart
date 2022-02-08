@@ -19,6 +19,7 @@ class _MovieListState extends State<MovieList> {
   Icon visibleIcon = Icon(Icons.search);
   Widget searchBar = Text('Movies');
   bool autoFocus = false;
+  bool _isLoading = false;
 
   Future search(text) async {
     movies = await helper.findMovies(text);
@@ -30,12 +31,13 @@ class _MovieListState extends State<MovieList> {
   Future initialize() async {
     movies = [];
     setState(() {
-      moviesCount = -1;
+      _isLoading = true;
     });
     await helper.getUpcoming().then((value) {
       setState(() {
         movies = value;
         moviesCount = movies.length;
+        _isLoading = false;
         print(movies);
       });
     });
@@ -84,12 +86,9 @@ class _MovieListState extends State<MovieList> {
         ],
       ),
       body: SafeArea(
-        child: moviesCount == -1
+        child: _isLoading
             ? Center(
-                child: Text(
-                'loading...',
-                style: TextStyle(fontSize: 25),
-              ))
+                child: CircularProgressIndicator())
             : ListView.builder(
                 itemCount: moviesCount,
                 itemBuilder: (BuildContext context, int position) {
